@@ -4,10 +4,12 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const shortId = require('shortid')
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors())
+app.use('/', createProxyMiddleware({ target: 'http://www.example.org', changeOrigin: true }));
 
 app.use("/", express.static(__dirname + "/build"));
 app.get("/", (req, res) => res.sendFile(__dirname + "/build/index.html"));
