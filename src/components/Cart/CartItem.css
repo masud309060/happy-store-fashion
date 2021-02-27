@@ -1,0 +1,31 @@
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+}
+.cartItem_img {
+  width: 60px;
+  margin-right: 5px;
+}
+.cartItem_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cartItem_control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  float: right;
+}
+.cartItem_control > button {
+  height: 40px;
+  width: 200px;
+  font-weight: 400;
+}
+.cartItem_control > p {
+  flex: 1;
+  text-align: center;
+}
