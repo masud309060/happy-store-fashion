@@ -5,15 +5,7 @@
   height: 100%;
   width: 100%;
 }
-.home_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.25rem 2rem;
-  background-color: rgba(238, 238, 238, 0.5);
-  color: #000;
-  border-bottom: 1px solid #ddd;
-}
+
 .home_main {
   flex-grow: 1;
   display: flex;
