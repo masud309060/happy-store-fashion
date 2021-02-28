@@ -60,29 +60,27 @@ const Cart = ({cartItems,  order, removeFromCart, createOrder, clearOrder}) => {
                     <span>{order.email} </span>
                   </div>
                   <div>
-                    <span>Address: {" "} </span>
-                    <span> {order.address} </span>
+                    <span style={{marginRight:'10px'}}>Address:</span>
+                    <span>{order.address}</span>
                   </div>
                   <div>
-                    <span>Date: </span>
-                    <span>{new Date(order.createdAt).toLocaleDateString()} {" "} 
-                      <strong>{new Date(order.createdAt).toLocaleTimeString()}</strong>
-                    </span>
+                    <span>Date: {" "} {new Date(order.createdAt).toLocaleDateString()} </span>
+                    <span>Time: {" "} {new Date(order.createdAt).toLocaleTimeString()} </span>
                   </div>
                   <div>
                     <span>Total: </span>
                     <strong>{ formateCurrency(+order.total)}</strong>
                   </div>
                   <div className="order_cart">
-                    <strong style={{marginRight: "auto"}}>Products List: </strong>
-                    {
-                      order.cartItems?.map(item => 
-                      <div className="order_cart_item">
-                        <span>{item.count}</span> 
-                        <span> x </span>
-                        <span> {item.title}</span>
-                      </div>)
-                    }
+                    <span>Products: </span>
+                    <div>
+                      {
+                        order.cartItems?.map(item => 
+                        <div className="order_cart_item">
+                          <span>{item.count} {" x "} {item.title}</span>
+                        </div>)
+                      }
+                    </div>
                   </div>
                 </div>
               </div>

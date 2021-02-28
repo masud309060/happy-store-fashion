@@ -5,6 +5,7 @@ import Filter from '../Filter/Filter';
 import Cart from '../Cart/Cart';
 import { fetchProducts } from '../../redux/action/productsAction';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
 
 const Home = ({ fetchProducts }) => {
 
@@ -15,13 +16,7 @@ const Home = ({ fetchProducts }) => {
 
   return (
     <div className="home_container">
-      <div className="home_header">
-          <img src="https://arzstore.com/wp-content/uploads/Logo_ARz_TheHappyStore.png"
-           alt="logo" 
-           height="50"/>
-        <h3>Admin</h3>
-      </div>
-
+      <Header />
       <div className="home_main">
         <div className="home_main_products">
           <Filter /> 

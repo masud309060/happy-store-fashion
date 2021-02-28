@@ -24,7 +24,8 @@
   padding: 8px 5px;
 }
 .form_control > button {
-  background-color: #F79F1F;
+  background-color: #0eb1fd;
+  font-size: 1rem;
   border: 0;
   padding: 8px 0;
 } 

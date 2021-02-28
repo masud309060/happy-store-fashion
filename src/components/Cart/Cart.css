@@ -21,9 +21,11 @@
 }
 .cart_total button {
   flex: 3;
-  background-color: #F79F1F;
+  background-color: #0eb1fd;
+  font-size: 1rem;
+  outline: 0;
   border: 0;
-  font-weight: 400;
+  font-weight: 500;
   transition: .5s;
 }
 .cart_total button:hover {
@@ -38,18 +40,34 @@
   justify-content: center;
   height: 100%;
   color: #222;
+  padding-top: 10px;
+}
+@media (max-width: 425px) {
+  .order_modal {
+    font-size: 80%;
+  }
 }
 .order_modal h3 {
+  font-size: 1.25rem;
   color: blueviolet;
   margin: 0;
 }
-.order_cart h2 {
-  margin: 0;
-  padding: 0;
+.order_modal > h2 {
+  margin: .5rem;
+}
+@media (max-width: 420px) {
+  .order_modal h2 {
+    font-size: 1.125rem;
+    margin-top: 0;
+  }
+  .order_modal h3 {
+    font-size: 1rem;
+  }
 }
 
 .order_details div{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: .5rem;
@@ -57,12 +75,22 @@
 
 .order_cart {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order_cart span {
+  margin-right: 10px;
+}
+.order_cart div {
+  flex: 1;
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .order_cart_item {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
   border-bottom: 1px solid #ddd;
-  padding: .5rem;
 }
+
