@@ -30,7 +30,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "server": "node server.js",
+    "server": "nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -54,16 +54,8 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "server.js",
-  "author": "Md Masud Rana",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/masud309060/happy-store-fashion.git"
-  },
-  "bugs": {
-    "url": "https://github.com/masud309060/happy-store-fashion/issues"
-  },
-  "homepage": "https://github.com/masud309060/happy-store-fashion#readme"
+  "engines": {
+    "node": "12.18.3",
+    "npm": "7.6.0"
+  }
 }
