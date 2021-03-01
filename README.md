@@ -4,7 +4,7 @@
 The happy store is an E-commerce website. Full responsible landing home page with show some list of products. Filter Products section where you can simply filter the products based on their sizes and
 sort by their price. Users add products in the cart section and also remove products. When users click on the product you can see a product list with an animated modal. After checkout and fill up buyers’ data they can order their products. After submitting your order buyer see their order info with a modal. Full state management with React-Redux & Redux. 
 
-[Live Website](https://clone-a6531.web.app/)
+[Live website](https://happy-store-fashion.herokuapp.com/)
 
 ### `Project Specifications`
 - Fully responsible landing home page with show some list of products with animation.
@@ -39,4 +39,4 @@ sort by their price.
 - Firebase Authentication (Google, email `sign in & sign out`) 
 - Heroku 
 
-[Live Website](https://clone-a6531.web.app/)
+[Live website](https://happy-store-fashion.herokuapp.com/) 
