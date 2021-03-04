@@ -1,0 +1,43 @@
+.orders_container {
+  background-color: #ddd;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+}
+.orders {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #eee;
+  min-height: 100vh;
+  height: 100%;
+}
+.orders > h3 {
+  text-align: center;
+  color: #333;
+}
+.ordersItem {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #222;
+}
+
+.ordersItem_header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_id {
+  color: #0eb1fd;
+}
+.order_total {
+  color: #222;
+}
+.orders_list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: .5rem 0;
+}

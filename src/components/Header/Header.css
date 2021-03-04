@@ -15,8 +15,22 @@
     text-align: center;
   }
 }
+.nav_section {
+  display: flex;
+  align-items: center;
+}
 
 .nav_section span {
   margin-left: 1.2rem;
   font-weight: 500;
+}
+.login_nav{
+  display: flex;
+  flex-direction: column;
+}
+.login_nav > p {
+  font-weight: 500;
+}
+.login_nav > small {
+  font-size: 12px;
 }

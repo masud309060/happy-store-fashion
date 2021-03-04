@@ -91,9 +91,19 @@ app.post('/api/orders', async (req, res) => {
   res.send(saveOrder)
 })
 
-app.get('/api/orders', async(req, res) => {
+app.get('/api/orders', async (req, res) => {
   const order = await Order.find({})
   res.send(order)
+})
+
+app.get('/api/orders/data', async (req, res) => {
+  try {
+    const email = await req.query.email;
+    const orders = await Order.find({email: email});
+    res.send(orders)
+  } catch (error) {
+    res.send(error)
+  }
 })
 
 const port = process.env.PORT || 5000;

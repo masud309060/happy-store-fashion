@@ -14,6 +14,9 @@
 # secret 
 .env 
 
+# firebase config
+/src/firebase.config.js
+
 
 # misc
 .DS_Store

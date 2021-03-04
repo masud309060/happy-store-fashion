@@ -6,11 +6,14 @@ import Cart from '../Cart/Cart';
 import { fetchProducts } from '../../redux/action/productsAction';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
+import { authStateChange } from '../../redux/action/authenticatinActions';
+import Footer from '../Footer/Footer';
 
-const Home = ({ fetchProducts }) => {
+const Home = ({ fetchProducts, authStateChange }) => {
 
   useEffect(() => {
     fetchProducts()
+    authStateChange()
   }, [])
 
 
@@ -27,9 +30,7 @@ const Home = ({ fetchProducts }) => {
         </div>
       </div>
 
-      <div className="home_footer">
-        <span>All Right is reserved &copy; {new Date().getFullYear()}</span>
-      </div>
+      <Footer /> 
     </div>
   );
 };
@@ -41,7 +42,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: () => dispatch(fetchProducts(dispatch))
+    fetchProducts: () => dispatch(fetchProducts(dispatch)),
+    authStateChange: () => dispatch(authStateChange())
   }
 }
 

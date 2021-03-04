@@ -1,8 +1,10 @@
 import React from 'react';
 import "./Header.css"
 import { Link } from 'react-router-dom';
+import { signOut } from '../../redux/action/authenticatinActions';
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = ({ signOut, userData }) => {
   return (
     <div className="home_header">
         <Link to="/">
@@ -16,7 +18,15 @@ const Header = () => {
             <Link to="/orders">Orders</Link>
           </span>
           <span>
-            <Link to="/login">Sign in</Link>
+            {
+              userData.authorise ? <Link to="/" onClick={signOut}>
+                <div className="login_nav">
+                  <p>Sign out, {" "}</p>
+                  <small>{userData.user?.displayName}</small>
+                </div>
+                </Link> :
+              <Link to="/login">Sign in</Link>
+            }
           </span>
           <span>
             <Link to="/admin">Admin</Link>
@@ -26,4 +36,15 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    userData: state.authentication
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    signOut: () => dispatch(signOut())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

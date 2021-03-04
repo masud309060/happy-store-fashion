@@ -1,28 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import { signInWithEmailAndPassword, signUpnWithEmailAndPassword, singInWithGoogle } from '../../redux/action/authenticatinActions';
+import { connect } from 'react-redux';
 
-const Login = () => {
-  const [showSignUp, setShowSignUp] = useState(false)
+
+const Login = ({userData, singInWithGoogle, signUpnWithEmailAndPassword , signInWithEmailAndPassword }) => {
+
+  // const history = useHistory()
+  // useEffect(() => {
+  //   if(userData.authorise) {
+  //     history.push("/")
+  //   }
+  // }, [userData])
+
+  const [newUser, setNewUser] = useState(false)
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
     password: "",
-    error: "",
-    authorise: false
   })
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("click")
-  }
-  
   const handleChange = (e) => {
     setUserInfo({
       ...userInfo,
       [e.target.name]: e.target.value,
     })
-    console.log(userInfo)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if(newUser === true && userInfo.email && userInfo.password){
+      signUpnWithEmailAndPassword(userInfo.name, userInfo.email, userInfo.password)
+    } 
+    else if (newUser === false && userInfo.email && userInfo.password) {
+      signInWithEmailAndPassword(userInfo.email, userInfo.password)
+    }
   }
 
   return (
@@ -34,44 +48,48 @@ const Login = () => {
         height="80"
         />
       </Link>
+      <div className="error">
+          {
+            userData.authorise ? <small>Succesfully Sign In</small> :
+            <small>{userData.error}</small>
+          }
+        </div>
       <div className="login_area">
         <form onSubmit={handleSubmit}>
-          <h3>{showSignUp ? "Sign up" : "Sign in"}</h3>
+          <h3>{newUser ? "Sign up" : "Sign in"}</h3>
           {
-          showSignUp && 
+          newUser && 
           <div className="form_div">
             <label htmlFor="name">Name: </label>
             <input onBlur={handleChange} type="name" name="name" id="name" required />
-            <span className="input_error"></span>
           </div>
           }
           <div className="form_div">
             <label htmlFor="email">Email: </label>
             <input onBlur={handleChange} type="email" name="email" id="email" required />
-            <span className="input_error"></span>
           </div>
           <div className="form_div">
             <label htmlFor="password">Password:</label>
             <input onBlur={handleChange} type="password" name="password" id="password" minLength={6} required />
-            <span className="input_error"></span>
           </div>
           <button className="login_btn">
-            {showSignUp ? "Create an account" : "Login"}
+            {newUser ? "Create an account" : "Login"}
           </button>
           <div className="change_login">
             <span>
-              {showSignUp ? "Already have an account?"  : "Create an account?"} {" "}
+              {newUser ? "Already have an account?"  : "Create an account?"} {" "}
             </span>
             <span 
-            onClick={() => setShowSignUp(!showSignUp)} 
+            onClick={() => setNewUser(!newUser)} 
             className="change_login_btn"
             >
-            {showSignUp ? "Sign in" : "Sign up"}
+            {newUser ? "Sign in" : "Sign up"}
             </span>
           </div>
         </form>
+
         <div className="login_or">or</div>
-        <div className="login_with_google">
+        <div onClick={singInWithGoogle} className="login_with_google">
           <img src="/images/icon/google.png" alt="google icon"/>
           <span>Sign in with Google</span>
         </div>
@@ -81,4 +99,17 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    userData: state.authentication,
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    singInWithGoogle: () => dispatch(singInWithGoogle()),
+    signUpnWithEmailAndPassword: (name, email, password) => dispatch(signUpnWithEmailAndPassword(name, email, password)),
+    signInWithEmailAndPassword: (email, password) => dispatch(signInWithEmailAndPassword(email, password))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

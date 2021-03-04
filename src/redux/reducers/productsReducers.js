@@ -23,7 +23,6 @@ const productsReducers = ( state = initialState, action) => {
     case FETCH_PRODUCTS_FAILURE: return {
       ...state,
       loading: false,
-      products: [],
       error: action.payload
     }
     case FILTER_PRODUCTS_BY_SIZES: return {

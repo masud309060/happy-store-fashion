@@ -1,8 +1,9 @@
-import { CLEAR_ORDER, CREATE_ORDER } from "../types";
+import { CLEAR_ORDER, CREATE_ORDER, FETCH_ORDERS_BY_EMAIL, FETCH_ORDERS_BY_EMAIL_FAILURE } from "../types";
 
 
 const initialState = {
-  order: []
+  order: [],
+  ordersData: []
 }
 
 const orderReducers = (state = initialState, action) => {
@@ -15,6 +16,17 @@ const orderReducers = (state = initialState, action) => {
       ...state,
       order: null
     }
+    case FETCH_ORDERS_BY_EMAIL: return {
+      ...state,
+      orderByEmail: action.payload.order,
+      error: ""
+    }
+    case FETCH_ORDERS_BY_EMAIL_FAILURE: return {
+      ...state,
+      ordersData: action.payload.order,
+      error: action.payload.error
+    }
+
     default: return state
   }
 }

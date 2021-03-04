@@ -17,11 +17,4 @@
 .home_main_sidebar {
   flex: 1 200px;
 }
-.home_footer {
-  height: 50px;
-  background-color: rgba(221, 221, 221, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #333;
-}
+
