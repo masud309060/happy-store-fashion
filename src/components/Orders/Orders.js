@@ -15,7 +15,7 @@ const Orders = ({userData, orders, fetchOrdersByEmail}) => {
     <div className="orders_container">
       <Header /> 
       <div className="orders">
-        <h3>Your {orders.length >= 2 ? "orders": "order"} list</h3>
+        <h3>Your {orders?.length >= 2 ? "orders": "order"} list</h3>
         {
            orders && orders.map(orderItem => 
             <div className="ordersItem">

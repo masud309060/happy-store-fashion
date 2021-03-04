@@ -7,9 +7,7 @@ const CheckoutForm = ({cartItems, createOrder, setModalIsOpen}) => {
     name: "",
     email: "",
     address: "",
-
   })
-
 
   const handleOrder = (e) => {
     e.preventDefault()
