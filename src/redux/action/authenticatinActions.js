@@ -1,4 +1,4 @@
-import { auth, GoogleAuthProvider } from "../../firebase.config";
+import { GoogleAuthProvider, auth } from './firebase.config.js'
 import { SIGN_IN_WITH_EMAIL_AND_PASSWORD, 
   SIGN_IN_WITH_EMAIL_AND_PASSWORD_FAILURE, 
   SIGN_IN_WITH_GOOGLE, 
