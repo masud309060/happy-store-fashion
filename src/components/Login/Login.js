@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import './Login.css';
-import { signInWithEmailAndPassword, signUpnWithEmailAndPassword, singInWithGoogle } from '../../redux/action/authenticatinActions';
+import { signInWithEmailAndPassword, 
+  signUpnWithEmailAndPassword, 
+  singInWithGoogle 
+} from '../../redux/action/authenticatinActions';
 import { connect } from 'react-redux';
 
 
 const Login = ({userData, singInWithGoogle, signUpnWithEmailAndPassword , signInWithEmailAndPassword }) => {
-
-  // const history = useHistory()
-  // useEffect(() => {
-  //   if(userData.authorise) {
-  //     history.push("/")
-  //   }
-  // }, [userData])
+  const history = useHistory()
+  useEffect(() => {
+    if(userData.authorise) {
+      history.push("/")
+    }
+  }, [userData])
 
   const [newUser, setNewUser] = useState(false)
   const [userInfo, setUserInfo] = useState({

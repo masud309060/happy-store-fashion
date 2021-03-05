@@ -12,6 +12,16 @@
   min-height: 100vh;
   height: 100%;
 }
+@media (max-width: 425px) {
+  .orders {
+    font-size: 80%;
+  }
+}
+@media (max-width: 370px) {
+  .orders {
+    font-size: 65%;
+  }
+}
 .orders > h3 {
   text-align: center;
   color: #333;

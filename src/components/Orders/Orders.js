@@ -5,9 +5,14 @@ import { fetchOrdersByEmail } from '../../redux/action/orderActions';
 import { formateCurrency } from '../../util';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { useHistory } from 'react-router';
 
 const Orders = ({userData, orders, fetchOrdersByEmail}) => {
+  const history = useHistory()
   useEffect(()=> {
+    if(userData.authorise === false){
+      history.push("/login")
+    }
     fetchOrdersByEmail(userData?.user.email)
   }, [])
   
@@ -15,7 +20,11 @@ const Orders = ({userData, orders, fetchOrdersByEmail}) => {
     <div className="orders_container">
       <Header /> 
       <div className="orders">
-        <h3>Your {orders?.length >= 2 ? "orders": "order"} list</h3>
+        {
+          orders && orders.length == 0 ? 
+          <h3>You have no orders</h3> :
+          <h3>Your {orders && orders.length >= 2 ? "orders": "order"} list</h3>
+        }
         {
            orders && orders.map(orderItem => 
             <div className="ordersItem">

@@ -5,7 +5,6 @@ import ProductItem from './ProductItem';
 import './Products.css';
 
 const Products = ({filterItems, products, cartItems, addToCart }) => {
-  console.log(filterItems)
   
   return (
     <div className="products">
