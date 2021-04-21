@@ -1,18 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { filterProductsBySizes, sortProductsByPrices } from '../../redux/action/productsAction';
-import './Filter.css';
+import React from "react";
+import { connect } from "react-redux";
+import {
+  filterProductsBySizes,
+  sortProductsByPrices,
+} from "../../redux/action/productsAction";
+import "./Filter.css";
 
-const Filter = ({ products, sort, size, filterItems, filterProductsBySizes, sortProductsByPrices}) => {
-
+const Filter = ({
+  products,
+  sort,
+  size,
+  filterItems,
+  filterProductsBySizes,
+  sortProductsByPrices,
+}) => {
   return (
     <div className="filter">
       <div className="filter_result">{filterItems?.length} Products</div>
       <div className="filter_sort">
-        Order {" "}
-        <select 
-        defaultValue={sort} 
-        onChange={(e) => sortProductsByPrices(filterItems, e.target.value)} 
+        Order{" "}
+        <select
+          defaultValue={sort}
+          onChange={(e) => sortProductsByPrices(filterItems, e.target.value)}
         >
           <option value="latest">Latest</option>
           <option value="lowest">Lowest</option>
@@ -20,10 +29,10 @@ const Filter = ({ products, sort, size, filterItems, filterProductsBySizes, sort
         </select>
       </div>
       <div className="filter_size">
-        Filter {" "}
-        <select 
-        defaultValue={size} 
-        onChange={(e) => filterProductsBySizes(products, e.target.value)} 
+        Filter{" "}
+        <select
+          defaultValue={size}
+          onChange={(e) => filterProductsBySizes(products, e.target.value)}
         >
           <option value="">All</option>
           <option value="XS">XS</option>
@@ -38,21 +47,22 @@ const Filter = ({ products, sort, size, filterItems, filterProductsBySizes, sort
   );
 };
 
-const mapStateToProps = state => {
-
+const mapStateToProps = (state) => {
   return {
     products: state.product.products,
     size: state.product.size,
     sort: state.product.sort,
     filterItems: state.product.filterItems,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    filterProductsBySizes: (products, size) => dispatch(filterProductsBySizes(products, size)),
-    sortProductsByPrices: (filterItems, sort) => dispatch(sortProductsByPrices(filterItems, sort))
-  }
-}
-  
+    filterProductsBySizes: (products, size) =>
+      dispatch(filterProductsBySizes(products, size)),
+    sortProductsByPrices: (filterItems, sort) =>
+      dispatch(sortProductsByPrices(filterItems, sort)),
+  };
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

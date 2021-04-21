@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { authenticationReducers } from "./reducers/authenticationReducers";
 import cartReducers from "./reducers/cartReducers";
@@ -13,6 +13,6 @@ const store = createStore(combineReducers({
    cart: cartReducers,  
    order: orderReducers,
    authentication: authenticationReducers,
-  }), composeWithDevTools( applyMiddleware( logger, thunk ) ))
+  }), composeWithDevTools( applyMiddleware( /* logger, */ thunk ) ))
 
 export default store;

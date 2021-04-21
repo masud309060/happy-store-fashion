@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <div className="footer">
-      <span>All Right is reserved &copy; {new Date().getFullYear()}</span>
+      <small>Created by Md Masud Rana || All Right is reserved &copy; {new Date().getFullYear()}</small>
     </div>
   );
 };
