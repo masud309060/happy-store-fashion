@@ -15,9 +15,12 @@ export const createOrder = (order) => {
         type: CREATE_ORDER,
         payload: data
       })
-      localStorage.clear("cartItems")
+      window.localStorage.clear("cartItems")
       dispatch({
-        type: CLEAR_CART
+        type: CLEAR_CART,
+        payload: {
+          items: []
+        }
       })
     })
   }

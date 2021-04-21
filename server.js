@@ -31,11 +31,6 @@ const Product = mongoose.model(
   })
 )
 
-
-app.get('/', async (req, res) => {
-  res.send('hello guys')
-})
-
 app.get('/api/products', async (req, res) => {
   const products = await Product.find({});
   res.send(products);
@@ -92,8 +87,12 @@ app.post('/api/orders', async (req, res) => {
 })
 
 app.get('/api/orders', async (req, res) => {
-  const order = await Order.find({})
-  res.send(order)
+  try {
+    const order = await Order.find({})
+    res.status(200).send(order)
+  } catch (e) {
+    res.send(e)
+  }
 })
 
 app.get('/api/orders/data', async (req, res) => {
@@ -102,6 +101,7 @@ app.get('/api/orders/data', async (req, res) => {
     const orders = await Order.find({email: email});
     res.send(orders)
   } catch (error) {
+    console.log(error)
     res.send(error)
   }
 })

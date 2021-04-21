@@ -9,15 +9,18 @@ import { removeFromCart } from "../../redux/action/cartActions";
 import { clearOder, createOrder } from "../../redux/action/orderActions";
 import Modal from "react-modal";
 import { formateCurrency } from "../../util";
+import { useHistory } from "react-router";
 
 const Cart = ({ cartItems, order, removeFromCart, createOrder, clearOrder, userData }) => {
   const [showForm, setShowForm] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const history = useHistory()
 
   const closeModal = () => {
     setModalIsOpen(false);
     clearOrder();
     setShowForm(false);
+    history.push("/orders")
   };
 
   return (

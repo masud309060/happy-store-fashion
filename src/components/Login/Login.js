@@ -11,10 +11,10 @@ import { connect } from 'react-redux';
 const Login = ({userData, singInWithGoogle, signUpnWithEmailAndPassword , signInWithEmailAndPassword }) => {
   const history = useHistory()
   useEffect(() => {
-    if(userData.authorise) {
-      history.push("/")
+    if(userData && userData.user && userData.authorise) {
+      history.goBack()
     }
-  }, [userData])
+  }, [userData.user])
 
   const [newUser, setNewUser] = useState(false)
   const [userInfo, setUserInfo] = useState({

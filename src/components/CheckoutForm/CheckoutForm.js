@@ -4,8 +4,8 @@ import Fade from 'react-reveal/Fade'
 
 const CheckoutForm = ({cartItems, createOrder, setModalIsOpen, userData}) => {
   const [inputData, setInputData] = useState({
-    name: "",
-    email: "",
+    name: userData.user?.displayName,
+    email: userData.user?.email,
     address: "",
   })
 
@@ -39,7 +39,7 @@ const CheckoutForm = ({cartItems, createOrder, setModalIsOpen, userData}) => {
           id="name"
           type="text" 
           name="name"
-          defaultValue={userData.user.displayName}
+          defaultValue={userData.user?.displayName}
           onChange={handleInput}
           required
           />
@@ -50,7 +50,7 @@ const CheckoutForm = ({cartItems, createOrder, setModalIsOpen, userData}) => {
           id="email"
           type="email" 
           name="email"
-          defaultValue={userData.user.email}
+          defaultValue={userData.user?.email}
           onChange={handleInput}
           required
           />

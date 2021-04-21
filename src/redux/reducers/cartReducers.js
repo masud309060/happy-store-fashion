@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../types"
+import { ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART } from "../types"
 
 
 const initialState = {
@@ -12,6 +12,10 @@ const cartReducers = ( state = initialState, action) => {
       cartItems: action.payload.items
     }
     case REMOVE_FROM_CART: return {
+      ...state,
+      cartItems: action.payload.items
+    }
+    case CLEAR_CART: return {
       ...state,
       cartItems: action.payload.items
     }

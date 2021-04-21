@@ -20,14 +20,14 @@ const Orders = ({ userData, orders, fetchOrdersByEmail }) => {
     <div className="orders_container">
       <Header />
       <div className="orders">
-        {orders && orders.length == 0 ? (
+        {orders && orders.length === 0 ? (
           <h3>You have no orders</h3>
         ) : (
           <h3>Your {orders && orders.length >= 2 ? "orders" : "order"} list</h3>
         )}
         {orders &&
           orders.map((orderItem) => (
-            <div className="ordersItem">
+            <div className="ordersItem" key={orderItem._id}>
               <div className="ordersItem_header">
                 <div className="order_info">
                   <strong>Order: </strong> <br />
@@ -46,8 +46,8 @@ const Orders = ({ userData, orders, fetchOrdersByEmail }) => {
                   </strong>
                 </div>
               </div>
-              {orderItem.cartItems?.map((product) => (
-                <div className="orders_list">
+              {orderItem.cartItems?.map((product, i) => (
+                <div className="orders_list" key={i}>
                   <span>{product.count} x </span>
                   <span>{product.title}</span>
                 </div>

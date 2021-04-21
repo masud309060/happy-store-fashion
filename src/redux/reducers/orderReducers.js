@@ -3,7 +3,6 @@ import { CLEAR_ORDER, CREATE_ORDER, FETCH_ORDERS_BY_EMAIL, FETCH_ORDERS_BY_EMAIL
 
 const initialState = {
   order: [],
-  ordersData: []
 }
 
 const orderReducers = (state = initialState, action) => {
@@ -14,7 +13,7 @@ const orderReducers = (state = initialState, action) => {
     }
     case CLEAR_ORDER : return {
       ...state,
-      order: null
+      order: null,
     }
     case FETCH_ORDERS_BY_EMAIL: return {
       ...state,
@@ -23,7 +22,7 @@ const orderReducers = (state = initialState, action) => {
     }
     case FETCH_ORDERS_BY_EMAIL_FAILURE: return {
       ...state,
-      ordersData: action.payload.order,
+      orderByEmail: action.payload.order,
       error: action.payload.error
     }
 
