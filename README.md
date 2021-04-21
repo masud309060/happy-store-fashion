@@ -37,6 +37,13 @@ sort by their price.
 - MongoDB 
 - Mongoose
 - Firebase Authentication (Google, email `sign in & sign out`) 
-- Heroku 
+- Heroku
+
+
+<br/>
+<a href="https://happy-store-fashion.herokuapp.com/" target="_blank">
+  <img src="https://eastceylon.com/images/2021/04/21/Happy-Store-1.png" alt="happy-store-img"/>
+ </a>
+<br/>
 
 [Live website](https://happy-store-fashion.herokuapp.com/) 
