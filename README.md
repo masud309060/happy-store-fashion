@@ -47,3 +47,6 @@ sort by their price.
 <br/>
 
 [Live website](https://happy-store-fashion.herokuapp.com/) 
+
+### `Thank You`
+> **follow me** [GitHub](https://github.com/masud309060) [LinkedIn](https://www.linkedin.com/in/masud309060/) [Portfolio](https://portfolio-of-md-masud-rana.netlify.app/)
